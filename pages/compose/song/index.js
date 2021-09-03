@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 import Container from "../../../components/Container";
 import media from 'jsmediatags/dist/jsmediatags.min.js'
 import { saveSong, uploadFile } from "../../../firebase/client";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import router from "next/router";
+
+const MySwal = withReactContent(Swal)
 
 const STATES = {
     NONE:0,
@@ -36,8 +41,18 @@ const Add = () => {
             const onError = (err) => {console.log(err)}
             const onComplete = () => {
               task.snapshot.ref.getDownloadURL().then(async res=>{
-                  console.log("A")
                   await saveSong({content:res,name:file.name})
+                  MySwal.fire({
+                    title:"Upload Sucessfully",
+                    text:"Do you wanna upload another song?",
+                    showCancelButton:true,
+                    cancelButtonText:"No",
+                    confirmButtonText:"Yes",
+                    showConfirmButton:true
+                }).then((value)=>{
+                    if(!value.isConfirmed) router.push("/home")
+                    setProgress(null)
+                })
               })
             }
       

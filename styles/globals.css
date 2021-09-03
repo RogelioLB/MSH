@@ -47,7 +47,7 @@ a.back{
   width:32px;
   justify-content: center;
   height:32px;
-  transition: .2s all;
+  transition: .43s all;
 }
 
 a.back svg{
@@ -64,7 +64,7 @@ a.back:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .2s all;
+  transition: .5s all;
 }
 
 a:hover .icon{
