@@ -7,16 +7,16 @@
 .head{
     display:flex;
     align-items: center;
-    padding:10px;
+    padding:20px;
     color:white;
     font-size: 22px;
-    height:60px;
+    height:65px;
     width:100%;
     background-color: #0984e3;
 }
 
 .head h1{
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .music_container{
@@ -30,12 +30,15 @@
 }
 
 .music_container::-webkit-scrollbar-thumb{
-    border-radius: 6px;
     background-color: #0984e3;
 }
 
+.music_container::-webkit-scrollbar-thumb:focus-within{
+    background-color: #0a0c0e;
+}
+
 .music_container::-webkit-scrollbar-track{
-    background-color: gray;
+    background-color: #bdc3c7;
 }
 
 .bottom_bar{

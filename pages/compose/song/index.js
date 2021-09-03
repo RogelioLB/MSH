@@ -104,7 +104,7 @@ const Add = () => {
                 }
                 main{
                     height:calc(100% - 52px);
-                    background-color:#e3e3e3;
+                    background-color:#ecf0f1;
                     display:flex;
                     justify-content:center;
                     align-items:center;

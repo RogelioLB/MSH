@@ -16,7 +16,7 @@ const Song = ({content,name,onPlay,id}) => {
                 .song-container{
                     width:100%;
                     height:120px;
-                    background:#636E72;
+                    background:#ecf0f1;
                     display:flex;
                     align-items:center;
                     padding:10px;
@@ -53,14 +53,16 @@ const Song = ({content,name,onPlay,id}) => {
                     border:none;
                     border-radius:50%;
                     outline:none;
+                    background:white;
                     transition:background .1s;
                 }
                 .song-play button:hover{
                     background:#b2bec3;
                 }
                 h2{
-                    color:white;
+                    color:black;
                     font-size:clamp(12px,4vw,24px);
+                    font-weight:400;
                 }
                 
                 `}
