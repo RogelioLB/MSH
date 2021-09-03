@@ -1,10 +1,10 @@
 {
-    "name": "Next PWA demo",
-    "short_name": "Mext PWA",
+    "name": "MusicSH",
+    "short_name": "MSH",
     "icons": [
       {
         "src": "/vercel.svg",
-        "type": "image/svg"
+        "type": "image/svg+xml"
       }
     ],
     "theme_color": "#FFFFFF",
