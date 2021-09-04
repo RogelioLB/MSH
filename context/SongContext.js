@@ -35,11 +35,11 @@ const SongContextProvider = ({children}) =>{
     useEffect(()=>{
         Play(id)
     },[id])
-    
+
     return(
         <SongContext.Provider value={{allSongs,setAllSongs,handlePlay}}>
             {children}
-            <audio src={selectedSong?.content} ref={audio} onEnded={handleEnded} id={id} title={selectedSong?.name}/>
+            <audio controls src={selectedSong?.content} ref={audio} onEnded={handleEnded} id={id} title={selectedSong?.name}/>
         </SongContext.Provider>
     )
 }
