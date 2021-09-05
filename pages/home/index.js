@@ -20,7 +20,7 @@ const Home = () => {
         <MainComponent title="MusicSH - Home">
             {allSongs && allSongs.map((song,id)=>(
                 <>
-                 <Song {...song} key={id} id={id} onPlay={handlePlay}/>
+                 <Song {...song} name={song.name.slice(0,song.name.lastIndexOf("."))} key={id} id={id} onPlay={handlePlay}/>
                 </>
             ))}
         </MainComponent>

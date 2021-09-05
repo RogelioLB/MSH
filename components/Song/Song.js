@@ -1,15 +1,16 @@
 import { faPlay } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Button from "../Button/Button"
 
-const Song = ({content,name,onPlay,id}) => {
+const Song = ({name,onPlay,id}) => {
     return (
-        <div className="song-container">
+        <div className="song-container" key={id}>
             <img src="/images/default.png" alt={name}/>
             <div className="song-title">
-                <h2>{name.slice(0,name.lastIndexOf("."))}</h2>
+                <h2>{name}</h2>
             </div>
             <div className="song-play">
-                <button onClick={()=>onPlay(id)}><FontAwesomeIcon icon={faPlay}/></button>
+                <Button onClick={()=>onPlay(id)}><FontAwesomeIcon icon={faPlay}/></Button>
             </div>
             <style jsx>
                 {`
@@ -34,30 +35,6 @@ const Song = ({content,name,onPlay,id}) => {
                     height:100%;
                     padding:10px;
                     flex:1;
-                }
-                .song-play{
-                    height:100%;
-                    display:flex;
-                    flex-direction:column;
-                    justify-content:center;
-                }
-
-                .song-play button{
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    height:45px;
-                    width:45px;
-                    cursor:pointer;
-                    padding:15px 15px;
-                    border:none;
-                    border-radius:50%;
-                    outline:none;
-                    background:white;
-                    transition:background .1s;
-                }
-                .song-play button:hover{
-                    background:#b2bec3;
                 }
                 h2{
                     color:black;

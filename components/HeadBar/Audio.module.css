@@ -1,0 +1,14 @@
+.container{
+    width:100%;
+    background-color:#3498db;
+    padding:10px;
+}
+
+.btn_container{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.txt{
+    color:white;
+}

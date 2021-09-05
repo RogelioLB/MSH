@@ -1,46 +1,15 @@
-import { useRouter } from "next/router";
-import { createContext, useEffect, useRef, useState } from "react";
-
+import { createContext } from "react";
+import useAudio from '../hooks/useAudio'
 export const SongContext = createContext()
 
 const SongContextProvider = ({children}) =>{
-    const [allSongs,setAllSongs] = useState(null);
-    const [selectedSong,setSelectedSong] = useState(null);
-    const [id,setId] = useState(null);
-    const router = useRouter();
-    const audio = useRef();
-
-    const Play = async() =>{
-        await audio.current.load();
-        await audio.current.play()
-    }
-
-    useEffect(()=>{
-        if(router.route === "/"){
-            audio.current.pause();
-            audio.current.currentTime = 0;
-        }
-    },[router.route])
-
-    const handlePlay = async(id) =>{
-        await setSelectedSong(allSongs[id])
-        setId(id)
-    }
-    
-    const handleEnded = async() =>{
-        await setSelectedSong(id === allSongs.length - 1 ? allSongs[0] : allSongs[id + 1])
-        await setId(id === allSongs.length - 1 ? 0 : id+1)
-    }
-
-    useEffect(()=>{
-        Play(id)
-    },[id])
+    const {allSongs,selectedSong,setAllSongs,state,currentTime,duration,Skip,Stop,Pause,Play,handleEnded,handlePlay,handleLoaded,handlePlaying,Resume,audio,id} = useAudio()
 
     return(
-        <SongContext.Provider value={{allSongs,setAllSongs,handlePlay}}>
+        <SongContext.Provider value={{allSongs,setAllSongs,handlePlay,Skip,Pause,Play,Stop,Resume,currentTime,state,duration,selectedSong}}>
             {children}
-            <audio controls src={selectedSong?.content} ref={audio} onEnded={handleEnded} id={id} title={selectedSong?.name}/>
-        </SongContext.Provider>
+            <audio src={selectedSong?.content} ref={audio} onEnded={handleEnded} id={id} title={selectedSong?.name} onTimeUpdate={handlePlaying} onLoadedMetadata={handleLoaded}/>
+        </SongContext.Provider> 
     )
 }
 
