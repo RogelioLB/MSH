@@ -12,3 +12,12 @@
 .txt{
     color:white;
 }
+
+.txt svg{
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.range{
+    outline:none;
+}

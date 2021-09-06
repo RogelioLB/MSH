@@ -9,6 +9,7 @@ export default function useAudio(){
     const [currentTime,setCurrentTime] = useState(null); 
     const [state,setState] = useState(null);
     const [duration,setDuration] = useState(null);
+    const [volume,setVolume] = useState(1);
     const router = useRouter();
     const audio = useRef();
 
@@ -60,8 +61,13 @@ export default function useAudio(){
         setDuration(secondToMin(audio.current.duration))
     }
 
+    const handleChange = (e) =>{
+        setVolume(e.target.value);
+        audio.current.volume=e.target.value;
+    }
+
     useEffect(()=>{
         if(id) Play(id)
     },[id])
-    return {state,allSongs,selectedSong,router,audio,id,currentTime,duration,setAllSongs,Resume,Skip,Play,Stop,handleLoaded,handlePlaying,handlePlay,handleEnded,Pause}
+    return {state,allSongs,selectedSong,router,volume,handleChange,audio,id,currentTime,duration,setAllSongs,Resume,Skip,Play,Stop,handleLoaded,handlePlaying,handlePlay,handleEnded,Pause}
 }
