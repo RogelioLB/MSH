@@ -20,4 +20,21 @@
 
 .range{
     outline:none;
+    appearance: none;
+    background-color: transparent;
+}
+
+.range::-webkit-slider-runnable-track{
+    background-color:#2c3e50;
+    padding:1px;
+    border-radius: 8px;
+}
+
+.range::-webkit-slider-thumb{
+    width:14px;
+    height:14px;
+    border-radius: 8px;
+    background: #3498db;
+    appearance: none;
+    -webkit-appearance: none;
 }

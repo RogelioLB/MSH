@@ -27,7 +27,7 @@ const HeadBar = ({className}) => {
                         <div className={Audio.container}>
                             <h3 className={Audio.txt}>{currentTime?.minutes}:{currentTime?.parsedSeconds} - {duration?.minutes}:{duration?.parsedSeconds}</h3>
                             <h3 className={Audio.txt}>{selectedSong?.name.slice(0,selectedSong.name.lastIndexOf("."))}</h3>
-                            <h3 className={Audio.txt}><FontAwesomeIcon icon={volume < .5 ? faVolumeDown : faVolumeUp }/><input className={Audio.range} type="range" value={volume} onChange={handleChange} min="0" max="1" step=".1"/></h3>
+                            <h3 className={Audio.txt}><FontAwesomeIcon icon={volume < .5 ? faVolumeDown : faVolumeUp }/><input className={Audio.range} type="range" value={volume} onChange={handleChange} min="0" max="1" step=".01"/></h3>
                         </div>
                     )
                 }
